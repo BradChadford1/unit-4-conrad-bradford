@@ -20,6 +20,7 @@ public class CoinTester {
       }
     }
 
+    System.out.println("Random Coin flip 10x:");
     System.out.println("Heads Count: " + hCount + "\nTails Count: " + tCount);
   }
 }

@@ -24,14 +24,24 @@ public class Coin {
   The flip method assigns a randomly chosen value to the face of the Coin.
   */
 
+  //This is the accessor method for the face varian=ble (a getter)
+
+  public int getFace(){
+    return face;
+  }
+
+  public void setFace(int newFace){
+    face = newFace;
+  }
+
   public void flip() {
     face = (int) (Math.random() * 2);
   }
     //The isHeads method tells us if the coin's face is a heads or not.
 
-    public boolean isHeads() {
-      return (face == 0);
-    }
+  public boolean isHeads() {
+    return (face == 0);
+  }
 
 
   //Prints out information about the current state of the coin.
