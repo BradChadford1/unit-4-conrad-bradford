@@ -2,10 +2,11 @@ public class Car {
   private String make;
   private String model;
   private double mileage;
-  private int tankCapacity;
+  private double tankCapacity;
   private double fuelAmt;
   private double distP;
-  public Car(String newMake, String newModel, double newMileage, int newTankCap, double distP) {
+
+  public Car(String newMake, String newModel, double newMileage, double newTankCap) {
     make = newMake;
     model = newModel;
     mileage = newMileage;
@@ -14,36 +15,39 @@ public class Car {
     distP = fuelAmt * mileage;
   }
 
-  public double fillTank() {
+  public void fillTank() {
     fuelAmt = tankCapacity;
+    System.out.println(make + " " + model + " tank is now full.\n");
   }
 
-  public double addGasAmt(double newFuelAmt) {
-    if (fuelAmt < TankCapacity) {
-      fuelAmt = fuelAmt + newFuelAmt;
-      System.out.println("Tank is now full.");
+  public void addGasAmt(double newFuelAmt) {
+    if ((fuelAmt + newFuelAmt) >= tankCapacity){
+      fuelAmt = tankCapacity;
+      System.out.println(make + " " + model + " tank is now full.\n");
     }
     else {
-      System.out.println("Tank is already full.");
+      fuelAmt = fuelAmt + newFuelAmt;
+      System.out.println(make + " " + model + " has: " + fuelAmt + " gallons left.\n");
     }
   }
 
-  public double setdistP(int newDistP) {
-    distP = newDistP;
+  public void canGo() {
+    distP = fuelAmt * mileage;
+    System.out.println(make + " " + model + " can drive " + distP + " before it runs out of gas.\n");
   }
 
   public void drive(double distance) {
     if (distP <= distance) {
-      System.out.println("You drove " + distP + " miles before you ran out of gas.");
+      System.out.println(make + " " + model + " drove " + distP + " miles before it ran out of gas.");
       fuelAmt = 0;
       distP = 0;
-      System.out.println("Fuel Left: " + fuelAmt + " gallons.");
+      System.out.println("Fuel Left: " + fuelAmt + " gallons.\n");
     }
     else {
-      System.out.println("You drove " + distance + " miles.");
+      System.out.println(make + " " + model + " drove " + distance + " miles.");
       fuelAmt = fuelAmt - (distance / mileage);
       distP = fuelAmt * mileage;
-      System.out.println("Fuel Left: " + fuelAmt + " gallons.");
+      System.out.println("Fuel Left: " + fuelAmt + " gallons.\n");
     }
   }
 
