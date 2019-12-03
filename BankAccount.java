@@ -6,6 +6,7 @@ public class BankAccount {
   private String balanceString;
   private String currency;
   private DecimalFormat money = new DecimalFormat("0.00");
+  private double yearlyInt = .04;
 
   public BankAccount(String name, String type, double intDeposit){
     account = name;
@@ -30,6 +31,12 @@ public class BankAccount {
     else {
       System.out.println("Error: Insufficient funds.\nPlease withdrawl a smaller amount.");
     }
+  }
+
+  public void fiscalYear() {
+    balance = balance + (balance * yearlyInt);
+    balanceString = money.format(balance);
+    System.out.println("Your balance increased by 4%!\nYour new balance is: " + balanceString + " " + currency + " dollars.");
   }
 
 }
