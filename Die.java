@@ -1,6 +1,7 @@
 public class Die {
   private int face;
   private int sides;
+
   public Die(int numSides) {
     sides = numSides;
   }
